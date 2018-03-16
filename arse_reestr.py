@@ -58,8 +58,7 @@ if __name__ == "__main__":
     with open('reestr.csv', encoding='latin-1') as csvfile:
         reestrreader = csv.DictReader(csvfile, delimiter=';')
         urls = [ 'http://www.drlz.com.ua/ibp/ddsite.nsf/all/shlz1?opendocument&stype='+row['ID'] for row in reestrreader ]
-        parse_part(urls[13730:])
-        #print(len(urls))
-        #for i in range(0, len(urls), 30):
-        #    print("index parse: " + str(i))
-        #    parse_part(urls[i-10:i])
+        for i in range(0, len(urls), 30):
+            print("index parse: " + str(i))
+            parse_part(urls[i-10:i])
+        parse_part(urls[len(urls)-30:])
